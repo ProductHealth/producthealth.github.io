@@ -1,0 +1,44 @@
+[
+    {
+        "id":"ad1a95a5.52e568",
+        "type":"tcp in",
+        "server":"server",
+        "host":"",
+        "port":"9000",
+        "datamode":"stream",
+        "datatype":"buffer",
+        "newline":"",
+        "topic":"foo",
+        "name":"bar",
+        "base64":false,
+        "x":127,
+        "y":205,
+        "z":"4ee0d307.b11f2c",
+        "wires":[
+            ["9af11410.650ee8", "8a22c6c6.75dd38"]
+        ]
+    },
+    {
+        "id":"9af11410.650ee8",
+        "type":"debug",
+        "name":"",
+        "active":true,
+        "complete":false,
+        "x":344,
+        "y":208,
+        "z":"4ee0d307.b11f2c",
+        "wires":[]
+    },
+    {
+        "id":"8a22c6c6.75dd38",
+        "type":"file",
+        "name":"log",
+        "filename":"noderedtest.txt",
+        "appendNewline":true,
+        "overwriteFile":false,
+        "x":362,
+        "y":290,
+        "z":"4ee0d307.b11f2c",
+        "wires":[]
+    }
+]
