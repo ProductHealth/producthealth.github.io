@@ -1,0 +1,34 @@
+---
+layout: page
+title: "Try it"
+header: Pages
+group: API Docs
+swagger_url: http://localhost:8080/api-docs
+position: 0
+---
+{% include JB/setup %}
+
+
+<!--div class="row">
+    <div class="col-md-12">
+        <div class="swagger-ui-wrap">
+            <form id='api_selector' class="form-inline" role="form">
+                <input class="form-control" placeholder="{{ page.swagger_url }}" id="input_baseUrl" name="baseUrl"
+                       type="text"/>
+                <a class="btn btn-default" id="explore" href="#">Explore</a>
+            </form>
+        </div>
+    </div>
+</div-->
+
+<div class="row">
+    <div class="col-md-12">
+        <div id="message-bar" class="swagger-ui-wrap">
+            &nbsp;
+        </div>
+
+        <div id="swagger-ui-container" class="swagger-ui-wrap">
+
+        </div>
+    </div>
+</div>

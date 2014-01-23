@@ -1,0 +1,78 @@
+---
+layout: home
+title: Developer Center
+group: home
+tagline: BETA
+---
+{% include JB/setup %}
+
+<div class="jumbotron banner-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>{{ page.title }}
+                    {% if page.tagline %}
+                    <small>{{ page.tagline }}</small>
+                    {% endif %}
+                </h1>
+                <p>Sensors designed by us and our partners go into the battery box of solar systems to understand
+                    how the battery and system is doing. The data, which we analyse, is sent to a web service for
+                    people to access and to act on.</p>
+
+                <p><a class="btn btn-primary btn-lg" role="button" href="{{ BASE_PATH }}/api/try-it">Learn
+                    more &raquo;</a></p>
+            </div>
+            <div class="col-md-6">
+
+                <img src="{{ BASE_PATH }}/assets/themes/product-health/images/product-image_grey.png"
+                     alt="" title="">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Heading</h2>
+
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                euismod. Donec sed odio dui. </p>
+
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Heading</h2>
+
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
+                mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                euismod. Donec sed odio dui. </p>
+
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Heading</h2>
+
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
+                porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
+                ut
+                fermentum massa justo sit amet risus.</p>
+
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+    </div>
+
+    Some news:
+
+    <ul class="posts">
+        {% for post in site.posts %}
+        <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">
+            {{ post.title }}</a></li>
+        {% endfor %}
+    </ul>
+</div>

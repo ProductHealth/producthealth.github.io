@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-2 side-nav">
+                <ul class="nav nav-stacked">
+                    <li>{{ page.group }}
+                        <ul class="nav nav-stacked">
+                            {% assign pages_list = site.pages | sort: 'position' %}
+                            {% assign group = page.group %}
+                            {% include JB/pages_list %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10 content">
+                <div class="page-header">
+                    <h1>{{ page.title }} {% if page.tagline %}
+                        <small>{{ page.tagline }}</small>
+                        {% endif %}
+                    </h1>
+                </div>
+
+                {{ content }}
+
+            </div>
+        </div>
+    </div>
+</div>
+

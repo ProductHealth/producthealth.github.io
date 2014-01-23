@@ -8,13 +8,13 @@ pygments: true
 # Themes are encouraged to use these universal variables 
 # so be sure to set them if your theme uses them.
 #
-title : Product Health Developer Website
+title : Product Health Dev Center
 tagline: Longer and Healthier Lives for Powered Products
 author :
-  name : Product Health
+  name : Product Health Ltd
   email : info@producthealth.com
   github : producthealth
-  twitter : ProductHealth
+  twitter : productHealth
 
 # The production_url is only used when full-domain names are needed
 # such as sitemap.txt 

@@ -1,4 +1,22 @@
 /* Custom container */
+/* Move down content because we have a fixed navbar that is 50px tall */
+.navbar ul li a{
+    font-size: 19px;
+}
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.navbar {
+    color: #ffffff;
+}
+#resources_container.container {
+    padding-top: 0px;
+}
+footer {
+    margin-top: 25px;
+    text-align: center;
+}
 .container-narrow {
   margin: 0 auto;
   max-width: 700px; }
