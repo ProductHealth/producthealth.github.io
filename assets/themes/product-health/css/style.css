@@ -1,10 +1,35 @@
 /* Custom container */
 /* Move down content because we have a fixed navbar that is 50px tall */
+
+.content table, th, td {
+    border: 1px solid #333333;
+    vertical-align: top;
+    padding: 2px 2px 2px 5px;
+}
+
+.content th {
+    background-color: #eeeeee;
+}
+
+.content th {
+    background-color: #eeeeee;
+}
+
+
+#message-bar {
+    min-height: 30px;
+    text-align: left;
+    padding-top: 0px;
+}
 .navbar ul li a{
     font-size: 19px;
 }
+.side-menu {
+    padding-top: 20px;
+    background-color: #eeeeee;
+}
 body {
-    padding-top: 50px;
+    padding-top: 89px;
     padding-bottom: 20px;
 }
 .navbar {
