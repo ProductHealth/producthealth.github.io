@@ -1,7 +1,15 @@
 /* Custom container */
 /* Move down content because we have a fixed navbar that is 50px tall */
 
-.content table, th, td {
+.content table{
+    margin: 10px;
+}
+
+pre {
+    margin: 10px;
+}
+
+.content th, td {
     border: 1px solid #333333;
     vertical-align: top;
     padding: 2px 2px 2px 5px;

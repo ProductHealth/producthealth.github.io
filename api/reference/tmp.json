@@ -1,8 +1,0 @@
-{
-    "error_status": {
-        "status": 404,
-        "message": "Not Found",
-        "details": ["Organization foobar does not exist"],
-        "more_info": "http://dev.producthealth.com/api"
-    }
-}

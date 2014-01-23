@@ -25,42 +25,62 @@ Resources
 
 We define the following resources organized hierarchically:
 
-    Organizations --> Product Types --> Products --> Channels
+    Organizations --> Product Types --> Products --> Channel Data
 
+
+There are two types of data in the system; metadata and time-series data:
+
+**Metadata** is information about a product or a channel of data that does not
+change very regularly (or in many cases, at all). This might include things like the version of the
+firmware, the product batch number or the geolocation. The metadata for a product is user-defined.
+
+**Time-series** data is information about a product that can change many times per second.
+This might include things like the battery voltage and current and temperature.
+The time-series data is stored in “channels”.  Channels can have their own metadata.
+
+Here is a summary of each resource:
 
 <table class="content">
-  <thead>
+    <thead>
     <tr>
         <th><strong>Resource</strong></th>
         <th><strong>Description</strong></th>
+        <th><strong>Type</strong></th>
     </tr>
-  </thead>
-  <tbody>
+    </thead>
+    <tbody>
     <tr>
         <td>Organizations</td>
         <td>Organizations are the top level resources and allow multi-tenancy of the service.
-        This endpoint allows the API user to define organizations under which product_types and products
-        are defined.</td>
+            This endpoint allows the API user to define organizations under which product_types and products
+            are defined.
+        </td>
+        <td>Metadata</td>
     </tr>
 
     <tr>
         <td>Product Types</td>
         <td>This endpoint allows the API user to define a schema for their product, including the
-        metadata and time-series data for the device. It allows the user to specify the attributes for the product.</td>
+            metadata and time-series data for the device. It allows the user to specify the attributes for the product.
+        </td>
+        <td>Metadata</td>
     </tr>
     <tr>
         <td>Products</td>
         <td>Once a product type has been created, instances of it can be created using this endpoint.
-        Each product is a container of metadata about the product and its channels.</td>
+            Each product is a container of metadata about the product and its channels.
+        </td>
+        <td>Metadata</td>
     </tr>
     <tr>
-        <td>Channels</td>
-        <td>Channels are holder of time series data. Time serie data are represented
-        using <a href="http://tools.ietf.org/html/draft-jennings-senml-08">SenML</a>.</td>
+        <td>Channel Data</td>
+        <td>Channel Data are holder of time series data. Time-series data are represented
+            using <a href="http://tools.ietf.org/html/draft-jennings-senml-08">SenML</a>.
+        </td>
+        <td>Time-series</td>
     </tr>
-  </tbody>
+    </tbody>
 </table>
-
 
 Resource Id
 -----------
@@ -293,3 +313,88 @@ The fields of this error object are:
     </tbody>
 </table>
 
+
+Common Resource Characteristics
+-------------------------------
+
+###Metadata Resource Attributes
+
+Metadata resources, i.e. Organizations, Product Types, Products and Channels share some attributes:
+
+<table class="content">
+    <thead>
+    <tr>
+        <th><strong>Name</strong></th>
+        <th><strong>Type</strong></th>
+        <th><strong>Description</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>id</td>
+        <td>string</td>
+        <td>a unique id in the scope of the resource hierarchy</td>
+    </tr>
+
+    <tr>
+        <td>properties</td>
+        <td>JSON object</td>
+        <td>User defined set of properties</td>
+    </tr>
+    <tr>
+        <td>tags</td>
+        <td>JSON string arrays</td>
+        <td>User defined tags</td>
+    </tr>
+    </tbody>
+</table>
+
+###JSON representation
+
+Resource JSON representation is an JSON object with only one key: the resource type:
+
+<table class="content">
+    <thead>
+    <tr>
+        <th><strong>Resource</strong></th>
+        <th><strong>Type Key</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Organization</td>
+        <td>organization</td>
+    </tr>
+
+    <tr>
+        <td>Product Type</td>
+        <td>product_type</td>
+    </tr>
+    <tr>
+        <td>Product</td>
+        <td>Product</td>
+    </tr>
+    <tr>
+        <td>Channel Data</td>
+        <td>e</td>
+    </tr>
+    </tbody>
+</table>
+
+The simplest metadata resource is the following:
+
+{% highlight javaScript %}
+{
+    "organization": {
+        "id": "an_id",
+        "properties": {},
+        "tags": []
+    }
+}
+{% endhighlight %}
+
+The simplest channel data resource is the following:
+
+{% highlight javaScript %}
+{"e":[{ "v":23.5 }]}
+{% endhighlight %}
