@@ -1,15 +1,13 @@
 ---
 layout: page
-title: "Reference"
+title: "General Concepts"
 header: Pages
 group: API Docs
-position: 0
+permalink: /api/reference/general-concepts/index.html
+weight: 20
 ---
 {% include JB/setup %}
 
-
-Product Health vision is "Longer and healthier lives for powered products" through the collection and analysis of
-product metrics, feedback to users and remote control.
 
 Service Entry Point
 -------------------
@@ -321,33 +319,7 @@ Common Resource Characteristics
 
 Metadata resources, i.e. Organizations, Product Types, Products and Channels share some attributes:
 
-<table class="content">
-    <thead>
-    <tr>
-        <th><strong>Name</strong></th>
-        <th><strong>Type</strong></th>
-        <th><strong>Description</strong></th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>id</td>
-        <td>string</td>
-        <td>a unique id in the scope of the resource hierarchy</td>
-    </tr>
-
-    <tr>
-        <td>properties</td>
-        <td>JSON object</td>
-        <td>User defined set of properties</td>
-    </tr>
-    <tr>
-        <td>tags</td>
-        <td>JSON string arrays</td>
-        <td>User defined tags</td>
-    </tr>
-    </tbody>
-</table>
+{% include shared/metadata_resource_attributes.html %}
 
 ###JSON representation
 

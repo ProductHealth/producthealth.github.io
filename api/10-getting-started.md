@@ -3,7 +3,8 @@ layout: page
 title: "Getting Started"
 header: Pages
 group: API Docs
-position: 3
+permalink: /api/getting-started/index.html
+weight: 10
 ---
 {% include JB/setup %}
 

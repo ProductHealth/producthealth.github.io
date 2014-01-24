@@ -1,0 +1,126 @@
+###Request
+<table class="content">
+    <thead>
+    <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Method</td>
+        <td>{{ request_method }}</td>
+    </tr>
+    <tr>
+        <td>Base URL</td>
+        <td>http://phs.io/v1</td>
+    </tr>
+    <tr>
+        <td>API Endpoint</td>
+        <td>{{ request_endpoint }}</td>
+    </tr>
+    </tbody>
+    <thead>
+    <tr>
+        <th colspan="2"><strong>Headers</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% if request_body %}
+        <td>Content-Type</td>
+        <td>application/json</td>
+        {% else %}
+        <td colspan="2">
+            No Headers
+        </td>
+        {% endif %}
+    </tr>
+    </tbody>
+    <thead>
+    <tr>
+        <th colspan="2"><strong>Body</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% if request_body %}
+        <td colspan="2">
+            {% highlight javaScript %}
+            {{ request_body }}
+            {% endhighlight %}
+        </td>
+        {% else %}
+        <td colspan="2">
+            <pre>This request does not require body data</pre>
+        </td>
+        {% endif %}
+    </tr>
+    </tbody>
+</table>
+
+###Response
+<table class="content">
+    <thead>
+    <tr>
+        <th colspan="2"><strong>Parameters</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>Status Code</td>
+        <td>{{ response_status }}</td>
+    </tr>
+    </tbody>
+    <thead>
+    <tr>
+        <th colspan="2"><strong>Headers</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% if response_body %}
+    <tr>
+        <td>Content-Type</td>
+        <td>application/json</td>
+    </tr>
+    {% endif %}
+    {% if location_header %}
+    <tr>
+        <td>Location</td>
+        <td>{{ location_header }}</td>
+    </tr>
+    {% endif %}
+    {% if response_body == nil and location_header == nil %}
+    <tr>
+        <td colspan="2">No Headers</td>
+    </tr>
+    {% endif %}
+
+    </tbody>
+    <thead>
+    <tr>
+        <th colspan="2"><strong>Body</strong></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        {% if response_body %}
+        <td colspan="2">
+            {% highlight javaScript %}
+            {{ response_body }}
+            {% endhighlight %}
+        </td>
+        {% else %}
+        <td colspan="2">
+            <pre>This response does not return body data</pre>
+        </td>
+        {% endif %}
+    </tr>
+    </tbody>
+</table>
+
+{% assign request_method = nil %}
+{% assign request_endpoint = nil %}
+{% assign request_body =  nil %}
+{% assign response_body =  nil %}
+{% assign location_header =  nil %}
+
