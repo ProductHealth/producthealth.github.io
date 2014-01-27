@@ -471,6 +471,12 @@
       this.name = obj.id != null ? obj.id : modelName;
       this.properties = [];
       for (propertyName in obj.properties) {
+        if(propertyName != "transient" &&
+           propertyName != "immutablePropertiesMap" &&
+           propertyName != "immutableChannelsMap" &&
+           propertyName != "defaultValueTypeMatch"){
+
+
         if (obj.required != null) {
           for (value in obj.required) {
             if (propertyName === obj.required[value]) {
@@ -480,6 +486,7 @@
         }
         prop = new SwaggerModelProperty(propertyName, obj.properties[propertyName]);
         this.properties.push(prop);
+        }
       }
     }
 
