@@ -89,7 +89,7 @@ as many key/value pairs as available channels, for example:
     }
 }{% endhighlight %}
 
-Each property definition is composed of two attributes:
+Each channel definition is composed of two attributes:
 
 <table class="content">
     <thead>

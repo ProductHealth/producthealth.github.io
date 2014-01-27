@@ -9,7 +9,7 @@ weight: 60
 {% include JB/setup %}
 
 
-A channel holds time-series channel data.  Every product measurement are recorded under a channel.
+A channel holds time-series channel data.  Every product measurements are recorded under a channel.
 Channel data follow the [SenML](http://tools.ietf.org/html/draft-jennings-senml-08) specification.
 
 
@@ -85,11 +85,7 @@ Recording instant values on multiple channels
 Recording historic values on multiple channels
 ----------------------------------------------
 
-When recording historic data, you have the choice of specifying the full timestamp on each record or a base time and
-only the time difference on each record.  The second solution could reduce the content size as the cost of some
-calculation.
-
-###Recording using full timestamp per record
+When recording historic data, you have to specifying the full timestamp on each record or a base time like this:
 
 {% assign request_method = 'POST' %}
 {% assign request_endpoint = '/organizations/acme/product_types/bat-mobile-model1/products/SN-ABCD-1234/channels' %}
@@ -116,38 +112,6 @@ calculation.
 {% assign response_status = '204 No Content' %}
 {% include themes/product-health/request-spec.html %}
 {% include themes/product-health/response-spec.html %}
-
-###Recording using base time and differential timestamp per record
-
-{% assign request_method = 'POST' %}
-{% assign request_endpoint = '/organizations/acme/product_types/bat-mobile-model1/products/SN-ABCD-1234/channels' %}
-{% capture request_body %}
-[
-    {
-        "e":[
-            { "v": 12.32, "t":0},
-            { "v": 12.33, "t":1},
-            { "v": 12.34, "t":2}
-        ],
-        "bn":"voltage",
-        "bt": 1320067464
-    },
-    {
-        "e":[
-            { "v": 0.452, "t":0},
-            { "v": 0.453, "t":1},
-            { "v": 0.454, "t":2}
-        ],
-        "bn":"current",
-        "bt": 1320067464
-    }
-]{% endcapture %}
-
-{% assign response_status = '204 No Content' %}
-{% include themes/product-health/request-spec.html %}
-{% include themes/product-health/response-spec.html %}
-
-
 
 Read last record of all channels
 --------------------------------
@@ -190,12 +154,12 @@ To read historical data, at least one of the following request parameters must b
     <tbody>
     <tr>
         <td>start</td>
-        <td>[ISO](http://en.wikipedia.org/wiki/ISO_8601) string</td>
+        <td><a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601</a> string</td>
         <td>the start time</td>
     </tr>
     <tr>
         <td>end</td>
-        <td>[ISO](http://en.wikipedia.org/wiki/ISO_8601) string</td>
+        <td><a href="http://en.wikipedia.org/wiki/ISO_8601">ISO8601</a> string</td>
         <td>the end time</td>
     </tr>
     </tbody>

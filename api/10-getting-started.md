@@ -192,7 +192,7 @@ create them. For example, to get the list of product types, use the following co
 {% include themes/product-health/response-spec.html %}
 
 In addition, you can get recorded data between a date range using the *start* and *end* request parameters as described
-in the (channel reference)[/api/reference/channels#read_historic_records_of_all_channels]
+in the [channel reference](/api/reference/channels/#read_historic_records_of_all_channels).
 
 {% assign request_method = 'GET' %}
 {% assign request_endpoint = '/organizations/&lt;your organization id&gt;/product_types/battery-box-model1/products/SN-ABCD-1234/channels?start=2013-11-20T11:01:46Z&amp;end=2013-11-20T12:01:46Z' %}
