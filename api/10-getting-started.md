@@ -102,7 +102,7 @@ The next step is to create a product belonging to the product type you have just
 The product id should be a unique in the scope of the product type, .i.e the serial number.
 
 {% assign request_method = 'POST' %}
-{% assign request_endpoint = '/organizations/&lt;your organization id&gt;/product_types/battery-box-model1' %}
+{% assign request_endpoint = '/organizations/&lt;your organization id&gt;/product_types/battery-box-model1/products' %}
 {% capture request_body %}
 {
     "product":{
