@@ -4,7 +4,7 @@
             <h2>{{ page.group }}</h2>
 
             <ul class="nav nav-stacked">
-                {% assign pages_list = site.pages %}
+                {% assign pages_list = site.pages | sort:"name" %}
                 {% assign group = page.group %}
                 {% include JB/pages_list %}
             </ul>
