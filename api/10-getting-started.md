@@ -38,14 +38,9 @@ of the Overview for a list of valid characters for the organization name.
 {% capture request_body %}
 {
     "organization": {
-        "id": "<your organization id>",
-        "properties":{
-	     "country": "UK",
-        },
-        "tags":["tag1", "tag2"],
+        "id": "<your organization id>"
     }
-}
-{% endcapture %}
+}{% endcapture %}
 
 {% assign response_status = '201 Created' %}
 {% assign location_header = 'http://phs.io/organizations/&lt;your organization id&gt;' %}
@@ -71,10 +66,6 @@ Again, you create new resources by issuing a POST to our API entry point:
 {
     "product_type": {
         "id": "battery-box-model1",
-        "properties": {
-            "name": "Battery Box Model 1"
-        },
-        "tags": ["battery", "solar"],
         "schema": {
             "properties": {
                 "activated": {
@@ -97,8 +88,7 @@ Again, you create new resources by issuing a POST to our API entry point:
             }
         }
     }
-}
-{% endcapture %}
+}{% endcapture %}
 
 {% assign response_status = '201 Created' %}
 {% assign location_header = '/organizations/&lt;your organization id&gt;/product_types/battery-box-model1' %}
@@ -117,7 +107,9 @@ The product id should be a unique in the scope of the product type, .i.e the ser
 {
     "product":{
         "id": "SN-ABCD-1234",
-        "properties":{},
+        "properties":{
+            "activated": true
+        },
         "channels": {
             "voltage": {
             }
@@ -147,7 +139,7 @@ the value 12.32, just submit the following command:
             }
         ],
         "bn":"voltage"
-    },
+    }
 ]{% endcapture %}
 
 {% assign response_status = '204 No Content' %}
