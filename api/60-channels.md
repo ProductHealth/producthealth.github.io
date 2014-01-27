@@ -165,10 +165,7 @@ To read historical data, at least one of the following request parameters must b
     </tbody>
 </table>
 
-If only one of the parameter is given, the following apply:
-
-* if the start time is not given, all records up to the end time will be returned,
-* if the end time is not given, all record from the start time until now will be returned.
+If only one of the parameter is given, then it defaults to the current time.
 
 {% assign request_method = 'GET' %}
 {% assign request_endpoint = '/organizations/acme/product_types/bat-mobile-model1/products/SN-ABCD-1234/channels?start=2013-11-20T11:01:46Z&amp;end=2013-11-20T12:01:46Z' %}
