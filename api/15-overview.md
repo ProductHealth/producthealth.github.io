@@ -8,7 +8,7 @@ weight: 15
 ---
 {% include JB/setup %}
 
-Product Health vision is "Longer and healthier lives for powered products" through the collection and analysis of
+Product Health vision is *Longer and Healthier Lives to your Powered Products* through the collection and analysis of
 product metrics, feedback to users and remote control.
 
 The Product Health [REST API](/api/reference/general-concepts) makes it easy to gather data from any product and organize them
