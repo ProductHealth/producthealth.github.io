@@ -68,6 +68,7 @@ Create a new organization
 {% assign response_status = '201 Created' %}
 {% assign location_header = 'http://phs.io/organizations/acme' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Read all organizations
 -------------------------
@@ -99,6 +100,7 @@ Read all organizations
 
 {% assign response_status = '200 OK' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Read an organization
 --------------------
@@ -119,6 +121,7 @@ Read an organization
 
 {% assign response_status = '200 OK' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Update an organization
 ----------------------
@@ -138,6 +141,7 @@ Update an organization
 
 {% assign response_status = '204 No Content' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Delete an organization
 ----------------------
@@ -146,3 +150,4 @@ Delete an organization
 {% assign request_endpoint = '/organizations/#orgId' %}
 {% assign response_status = '204 No Content' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}

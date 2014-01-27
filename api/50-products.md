@@ -143,6 +143,7 @@ Create a new product
 {% assign response_status = '201 Created' %}
 {% assign location_header = '/organizations/acme/product_types/bat-mobile-model-1/products/SN-ABCD-1234' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Read all products
 ----------------------
@@ -181,6 +182,7 @@ Read all products
 
 {% assign response_status = '200 OK' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Read a product
 --------------
@@ -216,6 +218,7 @@ Read a product
 
 {% assign response_status = '200 OK' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Update a product
 ----------------
@@ -250,6 +253,7 @@ Update a product
 
 {% assign response_status = '204 No Content' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Delete a product
 ----------------
@@ -258,3 +262,4 @@ Delete a product
 {% assign request_endpoint = '/organizations/acme/product_types/bat-mobile-model1/products/SN-ABCD-1234' %}
 {% assign response_status = '204 No Content' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}

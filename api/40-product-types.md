@@ -275,6 +275,7 @@ Create a new product type
 {% assign response_status = '201 Created' %}
 {% assign location_header = '/organizations/acme/product_types/bat-mobile-model-1' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Read all product types
 ----------------------
@@ -300,6 +301,7 @@ Read all product types
 
 {% assign response_status = '200 OK' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Read a product type
 -------------------
@@ -321,6 +323,7 @@ Read a product type
 
 {% assign response_status = '200 OK' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Update a product type
 ---------------------
@@ -342,6 +345,7 @@ Update a product type
 
 {% assign response_status = '204 No Content' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Delete a product type
 ---------------------
@@ -350,3 +354,4 @@ Delete a product type
 {% assign request_endpoint = '/organizations/acme/product_types/bat-mobile-model1' %}
 {% assign response_status = '204 No Content' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}

@@ -12,7 +12,7 @@ weight: 20
 Service Entry Point
 -------------------
 
-We collect and access product data through our RESTful API located at
+We collect and access product data through our REST API located at
 
     http://phs.io/v1
 

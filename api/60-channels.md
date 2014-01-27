@@ -80,6 +80,7 @@ Recording instant values on multiple channels
 
 {% assign response_status = '204 No Content' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Recording historic values on multiple channels
 ----------------------------------------------
@@ -114,6 +115,7 @@ calculation.
 
 {% assign response_status = '204 No Content' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 ###Recording using base time and differential timestamp per record
 
@@ -143,6 +145,7 @@ calculation.
 
 {% assign response_status = '204 No Content' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 
 
@@ -169,6 +172,7 @@ Read last record of all channels
 
 {% assign response_status = '200 OK' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
 
 Read historic records of all channels
 -------------------------------------
@@ -227,3 +231,4 @@ If only one of the parameter is given, the following apply:
 
 {% assign response_status = '200 OK' %}
 {% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
