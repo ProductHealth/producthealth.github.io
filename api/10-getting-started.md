@@ -145,6 +145,71 @@ the value 12.32, just submit the following command:
 {% assign response_status = '204 No Content' %}
 {% include themes/product-health/request-spec.html %}
 
+Step 5: Read your data
+----------------------
+
+Reading your resources is simply done by issuing a GET request to the same API endpoints that the one you have used to
+create them. For example, to get the list of product types, use the following command:
+
+{% assign request_method = 'GET' %}
+{% assign request_endpoint = '/organizations/&lt;your organization id&gt;/product_types' %}
+{% capture response_body %}
+[
+    {
+        "product_type": {
+            "id": "battery-box-model1",
+            "properties": {
+                "name": "Battery Box Model 1"
+            },
+            "tags": ["battery", "solar"],
+            "schema": {
+                "properties": {
+                    "activated": {
+                        "data_type": "boolean",
+                        "description": "True if the device is activated",
+                        "default_value": true
+                    }
+                },
+                "channels": {
+                    "voltage": {
+                        "data_type": "number",
+                        "properties": {
+                            "units": {
+                                "data_type": "string",
+                                "description": "SenML units",
+                                "default_value": "V"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+]{% endcapture %}
+
+{% assign response_status = '200 OK' %}
+{% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
+
+In addition, you can get recorded data between a date range using the *start* and *end* request parameters as described
+in the (channel reference)[/api/reference/channels#read_historic_records_of_all_channels]
+
+{% assign request_method = 'GET' %}
+{% assign request_endpoint = '/organizations/&lt;your organization id&gt;/product_types/battery-box-model1/products/SN-ABCD-1234/channels?start=2013-11-20T11:01:46Z&amp;end=2013-11-20T12:01:46Z' %}
+{% capture response_body %}
+[
+    {
+        "e":[
+            { "v": 12.32, "t":1320067464}
+        ],
+        "bn":"voltage"
+    }
+]{% endcapture %}
+
+{% assign response_status = '200 OK' %}
+{% include themes/product-health/request-spec.html %}
+{% include themes/product-health/response-spec.html %}
+
 
 Conclusion
 ----------
