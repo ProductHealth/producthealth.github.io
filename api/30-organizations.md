@@ -58,12 +58,11 @@ Create a new organization
     "organization": {
         "id": "acme",
         "properties":{
-	     "country": "UK",
+            "country": "UK"
         },
-        "tags":["tag1", "tag2"],
+        "tags":["tag1", "tag2"]
     }
-}
-{% endcapture %}
+}{% endcapture %}
 
 {% assign response_status = '201 Created' %}
 {% assign location_header = 'http://phs.io/organizations/acme' %}
@@ -95,8 +94,7 @@ Read all organizations
             }
         }
     }
-]
-{% endcapture %}
+]{% endcapture %}
 
 {% assign response_status = '200 OK' %}
 {% include themes/product-health/request-spec.html %}
@@ -116,8 +114,7 @@ Read an organization
             "other-property":"other_value"
         }
     }
-}
-{% endcapture %}
+}{% endcapture %}
 
 {% assign response_status = '200 OK' %}
 {% include themes/product-health/request-spec.html %}
@@ -136,8 +133,7 @@ Update an organization
             "other-property":"other_value"
         }
     }
-}
-{% endcapture %}
+}{% endcapture %}
 
 {% assign response_status = '204 No Content' %}
 {% include themes/product-health/request-spec.html %}

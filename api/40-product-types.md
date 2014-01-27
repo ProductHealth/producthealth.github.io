@@ -106,21 +106,20 @@ for example:
         "name": {
             "data_type":"string",
             "description":"This is the name of the device",
-            "default_value":null,
+            "default_value":null
         },
         "firmwareVersion": {
             "data_type":"string",
             "description":"This is the current firmware version for this device",
-            "default_value":null,
+            "default_value":null
         },
         "batchNumber": {
             "data_type":"number",
             "description":"The batch number when this device was manufactured",
-            "default_value":null,
+            "default_value":null
         }
     }
-}
-{% endhighlight %}
+}{% endhighlight %}
 
 
 Each property definition is composed of three attributes:
@@ -164,7 +163,7 @@ for example:
                 "units": {
                     "data_type":"string",
                     "description":"SenML units",
-                    "default_value":"V",
+                    "default_value":"V"
                 }
             }
         },
@@ -174,13 +173,12 @@ for example:
                 "units": {
                     "data_type":"string",
                     "description":"SenML units",
-                    "default_value":"A",
+                    "default_value":"A"
                 }
             }
         }
     }
-}
-{% endhighlight %}
+}{% endhighlight %}
 
 
 Each channel definition is composed of two attributes:
@@ -220,11 +218,11 @@ Create a new product type
 {% capture request_body %}
 {
     "product_type":{
-	 "id": "bat-mobile-model1",
+        "id": "bat-mobile-model1",
         "properties":{
             "name": "Fancy Widget",
             "market": "US",
-            "other-property": "other_value",
+            "other-property": "other_value"
         },
         "tags":["battery", "solar"],
         "schema":{
@@ -232,17 +230,17 @@ Create a new product type
                 "name": {
                     "data_type":"string",
                     "description":"This is the name of the device",
-                    "default_value":null,
+                    "default_value":null
                 },
                 "firmwareVersion": {
                     "data_type":"string",
                     "description":"This is the current firmware version for this device",
-                    "default_value":null,
+                    "default_value":null
                 },
                 "batchNumber": {
                     "data_type":"number",
                     "description":"The batch number when this device was manufactured",
-                    "default_value":null,
+                    "default_value":null
                 }
             },
             "channels":{
@@ -252,7 +250,7 @@ Create a new product type
                         "units": {
                             "data_type":"string",
                             "description":"SenML units",
-                            "default_value":"V",
+                            "default_value":"V"
                         }
                     }
                 },
@@ -262,15 +260,14 @@ Create a new product type
                         "units": {
                             "data_type":"string",
                             "description":"SenML units",
-                            "default_value":"A",
+                            "default_value":"A"
                         }
                     }
                 }
             }
         }
     }
-}
-{% endcapture %}
+}{% endcapture %}
 
 {% assign response_status = '201 Created' %}
 {% assign location_header = '/organizations/acme/product_types/bat-mobile-model-1' %}
@@ -290,14 +287,12 @@ Read all product types
             "properties":{
                 "name":"Fancy Widget",
                 "market":"US",
-                "other-property":"other_value",
+                "other-property":"other_value"
             },
             "tags":["battery", "solar"]
-        },
-    },
-    ...
-]
-{% endcapture %}
+        }
+    }
+]{% endcapture %}
 
 {% assign response_status = '200 OK' %}
 {% include themes/product-health/request-spec.html %}
@@ -315,10 +310,10 @@ Read a product type
         "properties":{
             "name":"Fancy Widget",
             "market":"US",
-            "other-property":"other_value",
+            "other-property":"other_value"
         },
         "tags":["battery", "solar"]
-    },
+    }
 }{% endcapture %}
 
 {% assign response_status = '200 OK' %}
@@ -337,10 +332,10 @@ Update a product type
         "properties":{
             "name":"Fancy Widget",
             "market":"US",
-            "other-property":"other_value",
+            "other-property":"other_value"
         },
         "tags":["battery", "solar"]
-    },
+    }
 }{% endcapture %}
 
 {% assign response_status = '204 No Content' %}

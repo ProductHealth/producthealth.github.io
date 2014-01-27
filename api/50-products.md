@@ -78,17 +78,16 @@ as many key/value pairs as available channels, for example:
             "properties":{
                 "units":"minivolts"
             },
-            "tags":["drifting"],
+            "tags":["drifting"]
         },
         "current":{
             "properties":{
                 "units":"amps"
             },
-            "tags":["stable"],
-        },
+            "tags":["stable"]
+        }
     }
-}
-{% endhighlight %}
+}{% endhighlight %}
 
 Each property definition is composed of two attributes:
 
@@ -134,7 +133,7 @@ Create a new product
                 "properties": {
                     "units":"minivolts"
                 },
-                "tags": ["drifting"],
+                "tags": ["drifting"]
             }
         }
     }
@@ -165,19 +164,18 @@ Read all products
                     "properties":{
                         "units":"minivolts"
                     },
-                    "tags":["drifting"],
+                    "tags":["drifting"]
                 },
                 "current":{
                     "properties":{
                         "units":"amps"
                     },
-                    "tags":["stable"],
+                    "tags":["stable"]
                 },
             },
             "tags":["prototype"]
-        },
-    },
-    ...
+        }
+    }
 ]{% endcapture %}
 
 {% assign response_status = '200 OK' %}
@@ -203,17 +201,17 @@ Read a product
                 "properties":{
                     "units":"minivolts"
                 },
-                "tags":["drifting"],
+                "tags":["drifting"]
             },
             "current":{
                 "properties":{
                     "units":"amps"
                 },
-                "tags":["stable"],
-            },
+                "tags":["stable"]
+            }
         },
         "tags":["prototype"]
-    },
+    }
 }{% endcapture %}
 
 {% assign response_status = '200 OK' %}
@@ -239,13 +237,13 @@ Update a product
                 "properties": {
                     "units":"minivolts"
                 },
-                "tags": ["drifting"],
+                "tags": ["drifting"]
             },
             "current": {
                 "properties": {
                     "units":"amps"
                 },
-                "tags": ["stable"],
+                "tags": ["stable"]
             }
         }
     }

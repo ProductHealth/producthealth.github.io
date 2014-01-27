@@ -269,8 +269,7 @@ the following:
         "details": ["Organization foobar does not exist"],
         "more_info": "http://dev.producthealth.com/api"
     }
-}
-{% endhighlight %}
+}{% endhighlight %}
 
 The fields of this error object are:
 
@@ -362,8 +361,7 @@ The simplest metadata resource is the following:
         "properties": {},
         "tags": []
     }
-}
-{% endhighlight %}
+}{% endhighlight %}
 
 The simplest channel data resource is the following:
 
