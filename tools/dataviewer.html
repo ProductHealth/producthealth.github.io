@@ -379,7 +379,7 @@ function convertData(data) {
                 continue
             }
 
-            serie["data"].push([sample["t"], sample["v"]])
+            serie["data"].push([sample["t"]  * 1000, sample["v"]])
         }
 
         highChartData = highChartData || []
