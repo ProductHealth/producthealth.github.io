@@ -25,7 +25,8 @@ position: 0
                 <p>Channel URL have the following shape:</p>
 
                 <p>
-                    phs.io/v1/organizations/<strong>[org]</strong>/product_types/<strong>[type]</strong>/products/<strong>[prod]</strong>/channels?<strong>start</strong>=1970-01-01T00:00:00Z</p>
+                    phs.io/v1/organizations/<strong>[org]</strong>/product_types/<strong>[type]</strong>/products/<strong>[prod]</strong>/channels?<strong>start</strong>=1970-01-01T00:00:00Z
+                </p>
 
                 <p>where:</p>
                 <dl>
@@ -38,7 +39,8 @@ position: 0
                     <dt>start</dt>
                     <dd>when should the data start</dd>
                 </dl>
-                <p>Please do not forget the <em>start</em> and/or <em>end</em> parameters or you will not get historical values.</p>
+                <p>Please do not forget the <em>start</em> and/or <em>end</em> parameters or you will not get historical
+                    values.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -73,111 +75,24 @@ position: 0
 </div>
 
 <script type="text/javascript">
-    function displayError(message, url) {
-        $('#error-url').text(url)
-        $('#error-message').text(message)
-        $('#error-modal').modal()
+function displayError(message, url) {
+    $('#error-url').text(url)
+    $('#error-message').text(message)
+    $('#error-modal').modal()
+}
+function queryParam(name) {
+    var href = window.location.href
+    var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(href);
+    if (results) {
+        return results[1] || null;
+    } else {
+        return null
     }
-    function queryParam(name) {
-        var href = window.location.href
-        var results = new RegExp('[\\?&]' + name + '=([^&#]*)').exec(href);
-        if (results) {
-            return results[1] || null;
-        } else {
-            return null
-        }
-    }
-    function convertData(data) {
-        var highChartData
-
-        if (!(data instanceof Array)) {
-            return null
-        }
-
-        for (var i in data) {
-
-            var senML = data[i]
-
-            if (!("bn" in senML) || !("e" in senML)) {
-                continue
-            }
-
-            var serie = {}
-            serie["name"] = senML["bn"]
-            serie["tooltip"] = { valueDecimals:3}
-            serie["data"] = []
-
-            var senMLData = senML["e"]
-            for (var j in senMLData) {
-                var sample = senMLData[j]
-
-                if (!("t" in sample) || !("v" in sample)) {
-                    continue
-                }
-
-                serie["data"].push([sample["t"], sample["v"]])
-            }
-
-            highChartData = highChartData || []
-
-            highChartData.push(serie)
-        }
-
-        return highChartData
-    }
-
-    function displayChart(url) {
-        if (!url) {
-            url = queryParam('url')
-        }
-
-        if (url) {
-            $.getJSON(url,function (data) {
-
-                var highChartData = convertData(data)
-
-                if (highChartData) {
-                    // Create the chart
-                    $('#chart').highcharts('StockChart', {
-
-
-                        rangeSelector:{
-                            selected:1
-                        },
-
-                        title:{
-                            text:url
-                        },
-
-                        series:highChartData
-                    });
-                } else {
-                    displayError("Data from this URL does not comply with the API", url)
-                }
-            }).fail(function () {
-                        displayError("No data found at this URL:", url)
-                    });
-        }
-    }
-</script>
-
-<script type="text/javascript">
-$(function () {
-
-    $('#url').val(queryParam('url'))
-
-    // bind 'myForm' and provide a simple callback function
-    $('#form').submit(function (event) {
-        event.preventDefault();
-        var url = $('#url').val()
-
-        if (url) {
-            displayChart(url)
-        } else {
-            displayError("Please give a channel URL")
-        }
-    });
-
+}
+function updateBrowserURL(url) {
+    window.history.pushState("Nothing to save", "Product Health Dataviewer", "?url=" + url);
+}
+function setupHighChartTheme() {
     /**
      * Gray theme for Highcharts JS
      * @author Torstein Honsi
@@ -434,8 +349,103 @@ $(function () {
     };
 
 // Apply the theme
-    var highchartsOptions = Highcharts.setOptions(Highcharts.theme);
+    Highcharts.setOptions(Highcharts.theme);
+}
+function convertData(data) {
+    var highChartData
 
-    displayChart()
-});
+    if (!(data instanceof Array)) {
+        return null
+    }
+
+    for (var i in data) {
+
+        var senML = data[i]
+
+        if (!("bn" in senML) || !("e" in senML)) {
+            continue
+        }
+
+        var serie = {}
+        serie["name"] = senML["bn"]
+        serie["tooltip"] = { valueDecimals:3}
+        serie["data"] = []
+
+        var senMLData = senML["e"]
+        for (var j in senMLData) {
+            var sample = senMLData[j]
+
+            if (!("t" in sample) || !("v" in sample)) {
+                continue
+            }
+
+            serie["data"].push([sample["t"], sample["v"]])
+        }
+
+        highChartData = highChartData || []
+
+        highChartData.push(serie)
+    }
+
+    return highChartData
+}
+
+function displayChart(url) {
+    if (!url) {
+        url = queryParam('url')
+    }
+
+    if (url) {
+        $.getJSON(url,function (data) {
+
+            var highChartData = convertData(data)
+
+            if (highChartData) {
+                setupHighChartTheme()
+                // Create the chart
+                $('#chart').highcharts('StockChart', {
+
+
+                    rangeSelector:{
+                        selected:1
+                    },
+
+                    title:{
+                        text:url
+                    },
+
+                    series:highChartData
+                });
+
+                updateBrowserURL(url)
+
+            } else {
+                displayError("Data from this URL does not comply with the API", url)
+            }
+        }).fail(function () {
+                    displayError("No data found at this URL:", url)
+                });
+    }
+}
+</script>
+
+<script type="text/javascript">
+    $(function () {
+
+        $('#url').val(queryParam('url'))
+
+        // bind 'myForm' and provide a simple callback function
+        $('#form').submit(function (event) {
+            event.preventDefault();
+            var url = $('#url').val()
+
+            if (url) {
+                displayChart(url)
+            } else {
+                displayError("Please give a channel URL")
+            }
+        });
+
+        displayChart()
+    });
 </script>
