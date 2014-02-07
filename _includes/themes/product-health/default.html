@@ -56,6 +56,14 @@
     <link href="{{ BASE_PATH }}{{ site.JB.rss_path }}" type="application/rss+xml" rel="alternate"
           title="Sitewide RSS Feed">
 
+    <script src="{{ ASSET_PATH }}/jquery/jquery-1.10.2.min.js"></script>
+    <script src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.js"></script>
+
+    {% if page.chart %}
+    <script src="../../assets/highstock/js/highstock.js"></script>
+    <script src="../../assets/highstock/js/modules/exporting.js"></script>
+    {% endif %}
+
 </head>
 
 <body>
@@ -70,8 +78,6 @@
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ ASSET_PATH }}/jquery/jquery-1.10.2.min.js"></script>
-<script src="{{ ASSET_PATH }}/bootstrap/js/bootstrap.js"></script>
 {% if page.swagger_url %}
 <script type="text/javascript" src="../../assets/swagger/lib/shred.bundle.js"></script>
 <script src='../../assets/swagger/lib/jquery-1.8.0.min.js' type='text/javascript'></script>

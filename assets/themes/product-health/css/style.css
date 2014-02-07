@@ -1,6 +1,12 @@
 /* Custom container */
 /* Move down content because we have a fixed navbar that is 50px tall */
 
+.chart {
+    height: 500px;
+    min-width: 500px;
+    margin-top: 10px
+}
+
 .content table{
     margin: 10px;
 }
