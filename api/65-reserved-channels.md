@@ -67,7 +67,7 @@ The corresponding product type schema is the following:
 Position Error Radius
 ---------------------
 
-The *position_error_radius* is a channel used to record the error radius on the position position channel in meter.
+The *position_error_radius* is a channel used to record the error radius on the position channel in meter.
 In other word, the position_error_radius is a number representing the error radius in meter.
 
 The corresponding product type schema is the following:
