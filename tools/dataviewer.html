@@ -370,6 +370,14 @@ function convertData(data) {
             continue
         }
 
+        if(senML["bn"] == "bce") {
+            continue
+        }
+
+        if(senML["bn"] == "bcu") {
+            continue
+        }
+
         var serie = {}
         serie["name"] = senML["bn"]
         serie["tooltip"] = { valueDecimals:3}
