@@ -5,28 +5,21 @@ group: home
 ---
 {% include JB/setup %}
 
-<div class="jumbotron banner-top">
+<div class="jumbotron banner-top" style="
+    background: url({{ BASE_PATH }}/assets/images/bg.jpg) 50% 100% no-repeat;
+    background-size: cover;
+">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <h1>{{ page.title }}
-                    {% if page.tagline %}
-                    <small>{{ page.tagline }}</small>
-                    {% endif %}
-                </h1>
-                <p>The most comprehensive resource to give <em>Longer and Healthier Lives to your Powered Products</em>.
-                    </p>
+        <h1>{{ page.title }}
+            {% if page.tagline %}
+            <small>{{ page.tagline }}</small>
+            {% endif %}
+        </h1>
+        <p>The most comprehensive resource to give <em>Longer and Healthier Lives to your Powered Products</em>.
+            </p>
 
-                <p><a class="btn btn-primary btn-lg" role="button" href="{{ BASE_PATH }}/api/overview">Learn
-                    more &raquo;</a></p>
-            </div>
-            <div class="col-md-6">
-
-                <img src="{{ BASE_PATH }}/assets/images/product-image_grey.png"
-                     alt="" title="">
-
-            </div>
-        </div>
+        <p><a class="btn btn-primary btn-lg" role="button" href="{{ BASE_PATH }}/api/overview">Learn
+            more &raquo;</a></p>
     </div>
 </div>
 
