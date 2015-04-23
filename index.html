@@ -59,13 +59,4 @@ tagline: BETA
             <p class="btn btn-default" disabled="disabled" href="#" role="button">Coming Soon &raquo;</p>
         </div>
     </div>
-
-    Some news:
-
-    <ul class="posts">
-        {% for post in site.posts %}
-        <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">
-            {{ post.title }}</a></li>
-        {% endfor %}
-    </ul>
 </div>
